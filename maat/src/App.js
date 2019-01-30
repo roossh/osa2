@@ -7,8 +7,7 @@ const App = () => {
 
   const [ countries, setCountries ] = useState([])
   const [ searchName, setSearchName ] = useState('')
-  const [ showCountry, setShowCountry ] = useState(false)
-
+  
   useEffect(() => {
     axios
       .get('https://restcountries.eu/rest/v2/all')
@@ -26,15 +25,16 @@ const App = () => {
       .map(country => country.show = false)
   }
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    console.log("hello", event.currentTarget.value)
+  const toggleVisibilityOf = country => {
+    const { name } = country
+    const div = document.getElementById(name)
+    div.style.display = div.style.display === "none" ? "block" : "none"
   }
 
   return (
     <div>
       <Searchbar handleSearchBarChange={handleSearchBarChange} />
-      <Countries countries={countries} showCountry={showCountry} setShowCountry={setShowCountry} handleClick={handleClick} />
+      <Countries countries={countries} toggleVisibilityOf={toggleVisibilityOf} />
     </div>
   )
 }

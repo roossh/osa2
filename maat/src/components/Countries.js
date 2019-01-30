@@ -1,25 +1,26 @@
 import React from 'react'
 import Country from './Country'
 
-const Countries = ({countries, showCountry, setShowCountry, handleClick}) => {
+const Countries = ({countries, toggleVisibilityOf}) => {
     const countriesToShow = countries.filter(country => country.show)
     if (countriesToShow.length > 10) {
       return (
-        <p key="countries">Too many matches, specify another filter</p>
+        <div key="countries">Too many matches, specify another filter</div>
       )
     }
-  
+
     if (countriesToShow.length === 1) {
       const rows = () => countriesToShow.map(country => 
-      <Country country={country} show={true} handleClick={handleClick} />)
+      <Country key={country.alpha3Code} country={country} visible={true} toggleVisibility={() => toggleVisibilityOf(country)}/>)
       return(
-        <p key="countries">{rows()}</p>
+        <div key="countries">{rows()}</div>
       )
     }
+
     const rows = () => countriesToShow.map(country =>
-      <Country country={country} show={false} handleClick={handleClick} />)
+      <Country key={country.alpha3Code} country={country} toggleVisibility={() => toggleVisibilityOf(country)} visible={false}/>)
     return (
-      <p key="countries">{rows()} </p>
+      <div key="countries">{rows()} </div>
     )
 }
 

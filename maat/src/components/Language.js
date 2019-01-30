@@ -2,7 +2,7 @@ import React from 'react'
 
 const Language = ({language}) => {
     return(
-      <li>{language}</li>
+      <li key={language}>{language}</li>
     )
 }
 
