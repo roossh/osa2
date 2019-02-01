@@ -9,6 +9,6 @@
 [täällä](/puhelinluettelo/)
 
 ### Tehtävät 2.12-2.13 (maiden tiedot)
-<b>Säätiedot (2.14) puuttuvat vielä!</b>
+<b>Säätiedot (2.14) puuttuvat vielä!</b> => weather api (key?)
 
 [täällä](/maat/)
