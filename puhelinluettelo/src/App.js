@@ -27,9 +27,8 @@ const App = () => {
           show: true
       }
       let personExists = persons.find(person => person.name.toLowerCase() === personObject.name.toLowerCase())
-      let numberExists = persons.find(person => person.number.split(" ").join() === personObject.number.split(" ").join())
-      if (personExists || numberExists) {
-          alert(`Henkilö ${personObject.name} tai numero ${personObject.number} on jo luettelossa`)
+      if (personExists) {
+          alert(`Henkilö ${personObject.name} on jo luettelossa`)
       } else {
         personService
           .create(personObject)
@@ -39,6 +38,15 @@ const App = () => {
             setNewNumber('')
           })
       }
+  }
+
+  const deletePerson = (person) => {
+    if (window.confirm(`Poistetaanko henkilö ${person.name} puhelinluettelosta?`)) {
+      personService
+        .deleteObject(person.id)
+      const newPersons = persons.filter(p=>p.id !== person.id)
+      setPersons(newPersons)
+    }
   }
 
   const handleNameChange = (event) => {
@@ -64,10 +72,9 @@ const App = () => {
       <Filter searchName={searchName} handleSearchNameChange={handleSearchNameChange} />
       <PersonForm addPerson={addPerson} newName={newName} newNumber={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
       <h2>Numerot</h2>
-      <Persons persons={persons}/>
+      <Persons persons={persons} deletePerson={deletePerson} />
     </div>
   )
-
 }
 
 export default App

@@ -23,24 +23,6 @@
       "number": "040-123456",
       "show": true,
       "id": 4
-    },
-    {
-      "name": "Jusu Jusula",
-      "number": "012345",
-      "show": true,
-      "id": 5
-    },
-    {
-      "name": "Nimi",
-      "number": "0124982",
-      "show": true,
-      "id": 6
-    },
-    {
-      "name": "toinennimi",
-      "number": "498039",
-      "show": true,
-      "id": 7
     }
   ]
 }
