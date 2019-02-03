@@ -25,7 +25,7 @@ const App = () => {
             setPersons(response.data)
         })
   }, [])
-  console.log('render', persons.length, 'persons')
+
   const addPerson = (event) => {
       event.preventDefault()
       const personObject = {
@@ -38,7 +38,11 @@ const App = () => {
       if (personExists || numberExists) {
           alert(`Henkilö ${personObject.name} tai numero ${personObject.number} on jo luettelossa`)
       } else {
-        setPersons(persons.concat(personObject))
+        axios
+          .post('http://localhost:3001/persons', personObject)
+          .then(response => {
+            setPersons(persons.concat(response.data))
+          })
         setNewName('')
         setNewNumber('')
       }
