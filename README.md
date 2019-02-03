@@ -4,7 +4,7 @@
 
 [täällä](/kurssit/)
 
-### Tehtävät 2.6-2.11 + 2.15- (puhelinluettelo) !!kesken!!
+### Tehtävät 2.6-2.11 + 2.15-2.18 (puhelinluettelo)
 
 [täällä](/puhelinluettelo/)
 
