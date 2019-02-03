@@ -28,7 +28,12 @@ const App = () => {
       }
       let personExists = persons.find(person => person.name.toLowerCase() === personObject.name.toLowerCase())
       if (personExists) {
-          alert(`Henkilö ${personObject.name} on jo luettelossa`)
+          if (window.confirm(`Henkilö ${personObject.name} on jo luettelossa. Korvataanko henkilön numero uudella?`)) {
+            personService
+              .update(personExists.id, personObject)
+            personExists.number = newNumber
+            setPersons(persons)
+          }
       } else {
         personService
           .create(personObject)
