@@ -32,9 +32,9 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div key={"App"}>
       <Searchbar handleSearchBarChange={handleSearchBarChange} />
-      <Countries countries={countries} toggleVisibilityOf={toggleVisibilityOf} />
+      <Countries countries={countries} toggleVisibilityOf={toggleVisibilityOf}/>
     </div>
   )
 }

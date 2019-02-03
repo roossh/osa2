@@ -11,14 +11,14 @@ const Countries = ({countries, toggleVisibilityOf}) => {
 
     if (countriesToShow.length === 1) {
       const rows = () => countriesToShow.map(country => 
-      <Country key={country.alpha3Code} country={country} visible={true} toggleVisibility={() => toggleVisibilityOf(country)}/>)
+      <Country key={country.alpha3Code} country={country} visible={true} toggleVisibility={() => toggleVisibilityOf(country)} />)
       return(
         <div key="countries">{rows()}</div>
       )
     }
 
     const rows = () => countriesToShow.map(country =>
-      <Country key={country.alpha3Code} country={country} toggleVisibility={() => toggleVisibilityOf(country)} visible={false}/>)
+      <Country key={country.alpha3Code} country={country} toggleVisibility={() => toggleVisibilityOf(country)} visible={false} />)
     return (
       <div key="countries">{rows()} </div>
     )
